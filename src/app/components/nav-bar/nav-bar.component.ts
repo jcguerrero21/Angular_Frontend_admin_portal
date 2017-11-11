@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../services/login.service';
 
 declare var $: any;
 
@@ -9,15 +10,35 @@ declare var $: any;
 })
 export class NavBarComponent implements OnInit {
 
-  private loggedIn = false;
+  private loggedIn = true;
 
-  constructor() { }
-
-  ngOnInit() {
-      $("#btnMenu").sideNav(); 
-  }
+  constructor(private loginService: LoginService) { }
 
   toggleDisplay() {
     this.loggedIn = !this.loggedIn;
+  }
+
+  cerrarSesion() {
+    this.loginService.cerrarSesion().subscribe(
+      res => {
+        location.reload();
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  ngOnInit() {
+    $("#btnMenu").sideNav();
+
+    this.loginService.verificarSesion().subscribe(
+      res => {
+        this.loggedIn = true;
+      },
+      error => {
+        this.loggedIn = false;
+      }
+    );
   }
 }

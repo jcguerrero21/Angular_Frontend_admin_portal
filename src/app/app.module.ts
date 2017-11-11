@@ -10,12 +10,14 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 
 import { LoginService } from './services/login.service';
+import { AddNuevoLibroComponent } from './components/add-nuevo-libro/add-nuevo-libro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    LoginComponent
+    LoginComponent,
+    AddNuevoLibroComponent
   ],
   imports: [
     BrowserModule,

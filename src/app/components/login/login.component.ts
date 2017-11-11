@@ -8,14 +8,14 @@ import { LoginService } from '../../services/login.service';
 })
 export class LoginComponent implements OnInit {
   private imagenCard: string;
-  private credenciales = {'username':'', 'password':''};
+  private credenciales = { 'username': '', 'password': '' };
   private loggedIn = false;
 
-  constructor(private loginService: LoginService) { 
+  constructor(private loginService: LoginService) {
     this.imagenCard = '/assets/imagenes/logo.png';
   }
 
-  onSubmit(){
+  onSubmit() {
     this.loginService.enviarCredenciales(this.credenciales.username, this.credenciales.password).subscribe(
       res => {
         console.log(res);
@@ -24,12 +24,19 @@ export class LoginComponent implements OnInit {
         location.reload();
       },
       error => {
-          console.log(error);
+        console.log(error);
       }
     );
   }
 
   ngOnInit() {
+    this.loginService.verificarSesion().subscribe(
+      res => {
+        this.loggedIn = true;
+      },
+      error => {
+        this.loggedIn = false;
+      }
+    );
   }
-
 }
