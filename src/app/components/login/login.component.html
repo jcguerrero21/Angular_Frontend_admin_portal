@@ -1,0 +1,26 @@
+<div class="container">
+  <div [hidden]="loggedIn" class="col s12 z-depth-4 card-panel card-login">
+    <form (ngSubmit)="onSubmit()" class="login-form">
+      <div class="row">
+        <div class="input-field col s12 center">
+          <img class="responsive-img" [src]="imagenCard">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix icon-pink-darken">account_circle</i>
+          <input type="text" mdInput [(ngModel)]="credenciales.username" name="username" id="username" class="validate">
+          <label for="username">Usuario</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix icon-pink-darken">lock</i>
+          <input type="password" mdInput [(ngModel)]="credenciales.password" name="password" id="password" class="validate">
+          <label for="password">Contraseña</label>
+        </div>
+      </div>
+      <button type="submit" class="btn pink darken-2 waves-effect waves-light">Entrar</button>
+    </form>
+  </div>
+</div>
