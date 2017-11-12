@@ -1,1 +1,135 @@
+<div class="container">
+  <div [hidden]="libroAniadido">
+    <div style="margin-top: 7%;">
+      <h3 class="center-align">INFORMACIÓN DEL NUEVO LIBRO
+        <i class="large material-icons prefix">edit</i>
+      </h3>
+    </div>
+    <div class="row">
+      <form (ngSubmit)="cnSubmit()" class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="titulo" type="text" class="validate" required [(ngModel)]="nuevoLibro.titulo" name="titulo">
+            <label for="titulo">Título *</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="autor" type="text" class="validate" required [(ngModel)]="nuevoLibro.autor" name="autor">
+            <label for="autor">Autor *</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="editorial" type="text" class="validate" required [(ngModel)]="nuevoLibro.editorial" name="editorial">
+            <label for="editorial">Editorial *</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="fechaDePublicacion" type="date" class="datepicker" required [(ngModel)]="nuevoLibro.fechaDePublicacion" name="fechaDePublicacion"
+              data-success="right">
+            <label for="fechaDePublicacion">FECHA DE PUBLICACION *</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <select id="categoria" name="categoria" required [(ngModel)]="nuevoLibro.categoria">
+              <option value="" disabled selected>Categoría *</option>
+              <option value="Administracion">Administración</option>
+              <option value="Ficcion">Ficción</option>
+              <option value="Ingenieria">Ingeniería</option>
+              <option value="Programacion">Programación</option>
+              <option value="Arte Y Literatura">Arte Y Literatura</option>
+            </select>
+          </div>
+          <div class="input-field col s6">
+            <select id="formato" name="formato" [(ngModel)]="nuevoLibro.formato">
+              <option value="" disabled selected>Formato</option>
+              <option value="Libro De Bolsillo">Libro De Bolsillo</option>
+              <option value="Tapa Dura">Tapa Dura</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="numeroDePaginas" type="number" class="validate" [(ngModel)]="nuevoLibro.numeroDePaginas" name="numeroDePaginas">
+            <label for="numeroDePaginas">Número De Páginas</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="isbn" type="text" class="validate" required [(ngModel)]="nuevoLibro.isbn" name="isbn">
+            <label for="isbn">ISBN *</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="listaDePrecios" type="number" class="validate" [(ngModel)]="nuevoLibro.listaDePrecios" name="listaDePrecios" step="0.01">
+            <label for="listaDePrecios">Lista De Precios</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="nuestroPrecio" type="number" class="validate" required [(ngModel)]="nuevoLibro.nuestroPrecio" name="nuestroPrecio"
+              step="0.01">
+            <label for="nuestroPrecio">Nuestro Precio *</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="pesoDelEnvio" type="number" class="validate" [(ngModel)]="nuevoLibro.pesoDelEnvio" name="pesoDelEnvio" step="0.01">
+            <label for="pesoDelEnvio">Peso Del Envio</label>
+          </div>
+          <div class="input-field col s6">
+            Idioma:
+            <div class="input-field inline">
+              <select id="idioma" name="idioma" [(ngModel)]="nuevoLibro.idioma">
+                <option disabled></option>
+                <option value="Ingles">Ingles</option>
+                <option value="Español">Español</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="numeroDeStock" type="number" class="validate" [(ngModel)]="nuevoLibro.numeroDeStock" name="numeroDeStock">
+            <label for="numeroDeStock">Numero De Stock</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="switch col s6">
+            <label>
+              Activo:
+              <input [(ngModel)]="nuevoLibro.activo" name="activo" id="activo" type="checkbox">
+              <span class="lever"></span>
+            </label>
+          </div>
+        </div>
 
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">book</i>
+            <textarea id="descripcion" [(ngModel)]="nuevoLibro.descripcion" class="materialize-textarea" name="descripcion"></textarea>
+            <label for="descripcion">Descripcion</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="file-field input-field col s5">
+            <div class="btn pink darken-2">
+              <span>Libro *</span>
+              <input id="imagenLibro" type="file" required name="imagenLibro" required multiple (change)="descargarImagenService.fileChangeEvent($event)">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s2">
+            <button type="submit" class="btn pink darken-2 waves-effect waves-light">Añadir Libro</button>
+          </div>
+          <div class="input-field col s2 margen-botones">
+            <a type="submit" routerLink="/" class="btn grey lighten-1 waves-effect waves-light">Cancelar</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row" [hidden]="!libroAniadido">
+    <h3>Libro añadido con existo</h3>
+  </div>
+</div>

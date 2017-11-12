@@ -1,0 +1,40 @@
+/* label focus color */
+.input-field input:focus + label {
+    color: #c2185b !important;
+}
+
+/* label underline focus color */
+.row .input-field input:focus {
+    border-bottom: 1px solid #c2185b !important;
+    box-shadow: 0 1px 0 0 #c2185b !important
+}
+
+.input-field textarea:focus + label {
+    color: #c2185b !important;
+}
+
+.row .input-field textarea:focus {
+    border-bottom: 1px solid #c2185b !important;
+    box-shadow: 0 1px 0 0 #c2185b !important;
+  }
+
+/* color del icono */
+i.icon-pink-darken {
+    color: #c2185b;
+}
+
+i.material-icons.active {
+    color: #c2185b;
+}
+
+.margen-botones{
+    margin-left: 5%;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: white !important;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: #c2185b !important;
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -12,7 +13,7 @@ export class NavBarComponent implements OnInit {
 
   private loggedIn = true;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   toggleDisplay() {
     this.loggedIn = !this.loggedIn;
@@ -27,6 +28,8 @@ export class NavBarComponent implements OnInit {
         console.log(error);
       }
     );
+
+    this.router.navigate(['/']);
   }
 
   ngOnInit() {

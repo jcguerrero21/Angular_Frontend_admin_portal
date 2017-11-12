@@ -3,13 +3,13 @@ export class Libro {
     public titulo: string;
     public autor: string;
     public editorial: string;
-    public fechaPublicacion: string;
+    public fechaDePublicacion: string;
     public idioma: string;
     public categoria: string;
     public numeroDePaginas: number;
     public formato: string;
     public isbn: string;
-    public PesoDelEnvio: number;
+    public pesoDelEnvio: number;
     public listaDePrecios: number;
     public nuestroPrecio: number;
     public activo: boolean;
