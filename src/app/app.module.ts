@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 import { MaterializeModule } from 'angular2-materialize';
 import { Routing } from './app.routing';
 
+import { LoginService } from './services/login.service';
+import { AddLibroService } from './services/add-libro.service';
+import { UploadImageService } from './services/upload-image.service';
+
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
-
-import { LoginService } from './services/login.service';
 import { AddNuevoLibroComponent } from './components/add-nuevo-libro/add-nuevo-libro.component';
 
 @NgModule({
@@ -27,7 +29,9 @@ import { AddNuevoLibroComponent } from './components/add-nuevo-libro/add-nuevo-l
     MaterializeModule
   ],
   providers: [
-    LoginService
+    LoginService,
+    AddLibroService,
+    UploadImageService
   ],
   bootstrap: [AppComponent]
 })

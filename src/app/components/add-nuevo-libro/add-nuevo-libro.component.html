@@ -1,12 +1,10 @@
 <div class="container">
   <div [hidden]="libroAniadido">
-    <div style="margin-top: 7%;">
       <h3 class="center-align">INFORMACIÓN DEL NUEVO LIBRO
         <i class="large material-icons prefix">edit</i>
       </h3>
-    </div>
     <div class="row">
-      <form (ngSubmit)="cnSubmit()" class="col s12">
+      <form (ngSubmit)="onSubmit()" class="col s12">
         <div class="row">
           <div class="input-field col s6">
             <input id="titulo" type="text" class="validate" required [(ngModel)]="nuevoLibro.titulo" name="titulo">
@@ -23,9 +21,7 @@
             <label for="editorial">Editorial *</label>
           </div>
           <div class="input-field col s6">
-            <input id="fechaDePublicacion" type="date" class="datepicker" required [(ngModel)]="nuevoLibro.fechaDePublicacion" name="fechaDePublicacion"
-              data-success="right">
-            <label for="fechaDePublicacion">FECHA DE PUBLICACION *</label>
+              <input id="fechaDePublicacion" type="date" required [(ngModel)]="nuevoLibro.fechaDePublicacion" name="fechaDePublicacion" placeholder="Fecha De Publicación*">
           </div>
         </div>
         <div class="row">
@@ -74,14 +70,11 @@
             <label for="pesoDelEnvio">Peso Del Envio</label>
           </div>
           <div class="input-field col s6">
-            Idioma:
-            <div class="input-field inline">
-              <select id="idioma" name="idioma" [(ngModel)]="nuevoLibro.idioma">
-                <option disabled></option>
-                <option value="Ingles">Ingles</option>
-                <option value="Español">Español</option>
-              </select>
-            </div>
+            <select id="idioma" name="idioma" [(ngModel)]="nuevoLibro.idioma">
+              <option disabled>Idioma</option>
+              <option value="Ingles">Ingles</option>
+              <option value="Español">Español</option>
+            </select>
           </div>
         </div>
         <div class="row">
@@ -111,7 +104,7 @@
           <div class="file-field input-field col s5">
             <div class="btn pink darken-2">
               <span>Libro *</span>
-              <input id="imagenLibro" type="file" required name="imagenLibro" required multiple (change)="descargarImagenService.fileChangeEvent($event)">
+              <input id="imagenLibro" type="file" name="imagenLibro" (change)="uploadImageService.fileChangeEvent($event)">
             </div>
             <div class="file-path-wrapper">
               <input class="file-path validate" type="text">
@@ -121,9 +114,6 @@
         <div class="row">
           <div class="input-field col s2">
             <button type="submit" class="btn pink darken-2 waves-effect waves-light">Añadir Libro</button>
-          </div>
-          <div class="input-field col s2 margen-botones">
-            <a type="submit" routerLink="/" class="btn grey lighten-1 waves-effect waves-light">Cancelar</a>
           </div>
         </div>
       </form>
