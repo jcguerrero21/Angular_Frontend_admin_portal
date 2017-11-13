@@ -44,4 +44,14 @@ export class UploadImageService {
     });
   }
 
+  modify(libroId: number) {
+    console.log(this.filesToUpload);
+    if (this.filesToUpload.length>0) {
+      this.makeFileRequest("http://localhost:8181/libro/aniadir/image?id=" + libroId, [], this.filesToUpload).then((result) => {
+        console.log(result);
+      }, (error) => {
+        console.log(error);
+      });
+    }
+  }
 }

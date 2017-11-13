@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Libro } from '../../models/libro';
 import { AddLibroService } from '../../services/add-libro.service';
 import {UploadImageService} from '../../services/upload-image.service';
-
 declare var $: any;
 
 @Component({
@@ -14,6 +13,8 @@ export class AddNuevoLibroComponent implements OnInit {
 
   private nuevoLibro: Libro = new Libro();
   private libroAniadido: boolean;
+  model: string;
+  modelChange = new EventEmitter();
 
   constructor(private addLibroService: AddLibroService, private uploadImageService:UploadImageService) {
   }
@@ -24,9 +25,6 @@ export class AddNuevoLibroComponent implements OnInit {
         this.uploadImageService.upload(JSON.parse(JSON.parse(JSON.stringify(res))._body).id);
         this.libroAniadido = true;
         this.nuevoLibro = new Libro();
-        this.nuevoLibro.categoria = "Administracion";
-        this.nuevoLibro.idioma = "Ingles";
-        this.nuevoLibro.formato = "Libro De Bolsillo";
       },
       error => {
         console.log(error);
@@ -39,9 +37,6 @@ export class AddNuevoLibroComponent implements OnInit {
     //variables de inicialización que se cargaran cuando abramos el formulario de añadir libro
     this.libroAniadido = false;
     this.nuevoLibro.activo = true;
-    this.nuevoLibro.categoria = "Administracion";
-    this.nuevoLibro.idioma = "Ingles";
-    this.nuevoLibro.formato = "Libro De Bolsillo";
 
     $('#categoria').material_select();
     $('#formato').material_select();
@@ -60,5 +55,4 @@ export class AddNuevoLibroComponent implements OnInit {
       closeOnSelect: false // Close upon selecting a date,
     });
   }
-
 }

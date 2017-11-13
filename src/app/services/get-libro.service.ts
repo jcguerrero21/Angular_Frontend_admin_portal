@@ -14,6 +14,6 @@ export class GetLibroService {
       'x-auth-token' : localStorage.getItem('xAuthToken')
     });
 
-    return this.http.post(url, {headers: headers});
+    return this.http.get(url, {headers: headers});
   }
 }

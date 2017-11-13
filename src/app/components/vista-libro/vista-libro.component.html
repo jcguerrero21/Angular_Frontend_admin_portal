@@ -2,6 +2,7 @@
   <div style="margin-top: 3%;">
     <a routerLink="/listaLibros">
       <i class="material-icons">arrow_back</i>Volver</a>
+    <span> / </span>
     <a (click)="onSelect(libro)" style="cursor: pointer">Editar</a>
   </div>
   <div class="row">
@@ -14,7 +15,7 @@
         <div class="card-stacked">
           <div class="card-content">
             <div class="row">
-              <div class="col s7">
+              <div class="col s5">
                 <h3>{{libro.titulo}}</h3>
               </div>
             </div>
@@ -32,22 +33,22 @@
                     <p>{{libro.editorial}}</p>
                   </li>
                   <li class="collection-item avatar">
-                    <i class="material-icons circle">date_range</i>
+                    <i class="material-icons circle cyan darken-4">date_range</i>
                     <span class="title">Fecha De Publicación:</span>
                     <p>{{libro.fechaDePublicacion}}</p>
                   </li>
                   <li class="collection-item avatar">
-                    <i class="material-icons circle">public</i>
+                    <i class="material-icons circle brown">public</i>
                     <span class="title">Idioma:</span>
                     <p>{{libro.idioma}}</p>
                   </li>
                   <li class="collection-item avatar">
-                    <i class="material-icons circle">widgets</i>
-                    <span class="title">Categoría</span>
+                    <i class="material-icons circle cyan darken-4">widgets</i>
+                    <span class="title">Categoría:</span>
                     <p>{{libro.categoria}}</p>
                   </li>
                   <li class="collection-item avatar">
-                    <i class="material-icons circle">widgets</i>
+                    <i class="material-icons circle brown">filter_9_plus</i>
                     <span class="title">Número De Páginas</span>
                     <p>{{libro.numeroDePaginas}}</p>
                   </li>
@@ -56,40 +57,40 @@
               <div class="col s5">
                 <ul class="collection">
                   <li class="collection-item avatar">
-                    <i class="material-icons circle">polymer</i>
+                    <i class="material-icons circle cyan darken-4">polymer</i>
                     <span class="title">Formato:</span>
                     <p>{{libro.formato}}</p>
                   </li>
                   <li class="collection-item avatar">
-                    <i class="material-icons circle">note</i>
+                    <i class="material-icons circle brown">note</i>
                     <span class="title">ISBN:</span>
                     <p>{{libro.isbn}}</p>
                   </li>
                   <li class="collection-item avatar">
-                    <i class="material-icons circle">date_range</i>
+                    <i class="material-icons circle cyan darken-4">book</i>
                     <span class="title">Peso Del Libro:</span>
                     <p>{{libro.pesoDelEnvio}}</p>
                   </li>
                   <li class="collection-item avatar">
-                    <i class="material-icons circle">list</i>
+                    <i class="material-icons circle brown">attach_money</i>
                     <span class="title">Lista De Precios:</span>
                     <p>{{libro.listaDePrecios}}</p>
                   </li>
                   <li class="collection-item avatar">
-                    <i class="material-icons circle">attach_money</i>
+                    <i class="material-icons circle cyan darken-4">euro_symbol</i>
                     <span class="title">Nuestro Precio:</span>
                     <p>{{libro.nuestroPrecio}}</p>
                   </li>
                   <li class="collection-item avatar">
-                    <i class="material-icons circle">euro_symbol</i>
-                    <span class="title">Número De Stock:</span>
+                    <i class="material-icons circle brown">assistant_photo</i>
+                    <span class="title">Stock:</span>
                     <p>{{libro.numeroDeStock}}</p>
                   </li>
                 </ul>
               </div>
             </div>
             <div class="card-action">
-              <span class="title">Descripción:</span>
+              <a>Descripción:</a>
               <p>{{libro.descripcion}}</p>
             </div>
           </div>

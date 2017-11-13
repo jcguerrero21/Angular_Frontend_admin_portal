@@ -1,33 +1,33 @@
 <div class="container">
   <div [hidden]="libroAniadido">
-      <h3 class="center-align">INFORMACIÓN DEL NUEVO LIBRO
-        <i class="large material-icons prefix">edit</i>
+      <h3 class="center-align">Editar Libro
+        <i class="large material-icons prefix">border_color</i>
       </h3>
     <div class="row">
       <form (ngSubmit)="onSubmit()" class="col s12">
         <div class="row">
           <div class="input-field col s6">
-            <input id="titulo" type="text" class="validate" required [(ngModel)]="nuevoLibro.titulo" name="titulo">
+            <input id="titulo" type="text" class="validate" required [(ngModel)]="libro.titulo" name="titulo">
             <label for="titulo">Título *</label>
           </div>
           <div class="input-field col s6">
-            <input id="autor" type="text" class="validate" required [(ngModel)]="nuevoLibro.autor" name="autor">
+            <input id="autor" type="text" class="validate" required [(ngModel)]="libro.autor" name="autor">
             <label for="autor">Autor *</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <input id="editorial" type="text" class="validate" required [(ngModel)]="nuevoLibro.editorial" name="editorial">
+            <input id="editorial" type="text" class="validate" required [(ngModel)]="libro.editorial" name="editorial">
             <label for="editorial">Editorial *</label>
           </div>
           <div class="input-field col s6">
-              <input id="fechaDePublicacion" type="date" required [(ngModel)]="nuevoLibro.fechaDePublicacion" name="fechaDePublicacion" placeholder="Fecha De Publicación*">
+              <input id="fechaDePublicacion" type="date" required [(ngModel)]="libro.fechaDePublicacion" name="fechaDePublicacion" placeholder="Fecha De Publicación*">
           </div>
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <select materialize="material_select" id="categoria" name="categoria" required [(ngModel)]="nuevoLibro.categoria">
-              <option value="" disabled selected>Categoría *</option>
+            <select materialize="material_select" id="categoria" name="categoria" required [(ngModel)]="libro.categoria">
+              <option value="" disabled>Categoría *</option>
               <option value="Administracion">Administración</option>
               <option value="Ficcion">Ficción</option>
               <option value="Ingenieria">Ingeniería</option>
@@ -36,8 +36,8 @@
             </select>
           </div>
           <div class="input-field col s6">
-            <select materialize="material_select" id="formato" name="formato" [(ngModel)]="nuevoLibro.formato">
-              <option value="" disabled selected>Formato</option>
+            <select materialize="material_select" id="formato" name="formato" [(ngModel)]="libro.formato">
+              <option value="" disabled>Formato</option>
               <option value="Libro De Bolsillo">Libro De Bolsillo</option>
               <option value="Tapa Dura">Tapa Dura</option>
             </select>
@@ -45,32 +45,32 @@
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <input id="numeroDePaginas" type="number" class="validate" [(ngModel)]="nuevoLibro.numeroDePaginas" name="numeroDePaginas">
+            <input id="numeroDePaginas" type="number" class="validate" [(ngModel)]="libro.numeroDePaginas" name="numeroDePaginas">
             <label for="numeroDePaginas">Número De Páginas</label>
           </div>
           <div class="input-field col s6">
-            <input id="isbn" type="text" class="validate" required [(ngModel)]="nuevoLibro.isbn" name="isbn">
+            <input id="isbn" type="text" class="validate" required [(ngModel)]="libro.isbn" name="isbn">
             <label for="isbn">ISBN *</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <input id="listaDePrecios" type="number" class="validate" [(ngModel)]="nuevoLibro.listaDePrecios" name="listaDePrecios" step="0.01">
+            <input id="listaDePrecios" type="number" class="validate" [(ngModel)]="libro.listaDePrecios" name="listaDePrecios" step="0.01">
             <label for="listaDePrecios">Lista De Precios</label>
           </div>
           <div class="input-field col s6">
-            <input id="nuestroPrecio" type="number" class="validate" required [(ngModel)]="nuevoLibro.nuestroPrecio" name="nuestroPrecio"
+            <input id="nuestroPrecio" type="number" class="validate" required [(ngModel)]="libro.nuestroPrecio" name="nuestroPrecio"
               step="0.01">
             <label for="nuestroPrecio">Nuestro Precio *</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <input id="pesoDelEnvio" type="number" class="validate" [(ngModel)]="nuevoLibro.pesoDelEnvio" name="pesoDelEnvio" step="0.01">
+            <input id="pesoDelEnvio" type="number" class="validate" [(ngModel)]="libro.pesoDelEnvio" name="pesoDelEnvio" step="0.01">
             <label for="pesoDelEnvio">Peso Del Envio</label>
           </div>
           <div class="input-field col s6">
-            <select materialize="material_select" id="idioma" name="idioma" [(ngModel)]="nuevoLibro.idioma">
+            <select materialize="material_select" id="idioma" name="idioma" [(ngModel)]="libro.idioma">
               <option disabled>Idioma</option>
               <option value="Ingles">Ingles</option>
               <option value="Español">Español</option>
@@ -79,7 +79,7 @@
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <input id="numeroDeStock" type="number" class="validate" [(ngModel)]="nuevoLibro.numeroDeStock" name="numeroDeStock">
+            <input id="numeroDeStock" type="number" class="validate" [(ngModel)]="libro.numeroDeStock" name="numeroDeStock">
             <label for="numeroDeStock">Numero De Stock</label>
           </div>
         </div>
@@ -87,7 +87,7 @@
           <div class="switch col s6">
             <label>
               Activo:
-              <input [(ngModel)]="nuevoLibro.activo" name="activo" id="activo" type="checkbox">
+              <input [(ngModel)]="libro.activo" name="activo" id="activo" type="checkbox">
               <span class="lever"></span>
             </label>
           </div>
@@ -96,7 +96,7 @@
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">book</i>
-            <textarea id="descripcion" [(ngModel)]="nuevoLibro.descripcion" class="materialize-textarea" name="descripcion"></textarea>
+            <textarea id="descripcion" [(ngModel)]="libro.descripcion" class="materialize-textarea" name="descripcion"></textarea>
             <label for="descripcion">Descripcion</label>
           </div>
         </div>
@@ -113,13 +113,13 @@
         </div>
         <div class="row">
           <div class="input-field col s2">
-            <button type="submit" class="btn pink darken-2 waves-effect waves-light">Añadir Libro</button>
+            <button type="submit" class="btn pink darken-2 waves-effect waves-light">Actualizar</button>
           </div>
         </div>
       </form>
     </div>
   </div>
   <div class="row" [hidden]="!libroAniadido">
-    <h3>Libro añadido con existo</h3>
+    <h3>Libro actualizado con existo</h3>
   </div>
 </div>

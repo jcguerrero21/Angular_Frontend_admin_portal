@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Params, ActivatedRoute, Router} from '@angular/router';
+import { Params, ActivatedRoute, Router } from '@angular/router';
 import { GetListaLibrosService } from '../../services/get-lista-libros.service';
 import { Libro } from '../../models/libro';
 import { GetLibroService } from '../../services/get-libro.service';
@@ -11,15 +11,21 @@ import { GetLibroService } from '../../services/get-libro.service';
 })
 export class VistaLibroComponent implements OnInit {
 
-  private libro:Libro = new Libro();
+  private libro: Libro = new Libro();
   private libroId: number;
-  private autorImg:string;
-  private editorialImg:string;
+  private autorImg: string;
+  private editorialImg: string;
 
 
-  constructor(private getLibroService:GetLibroService, private route:ActivatedRoute, private router:Router) { 
+  constructor(private getLibroService: GetLibroService, private route: ActivatedRoute, private router: Router) {
     this.autorImg = '/assets/imagenes/autor.jpg';
-    this.editorialImg = '/assets/imagenes/editorial.jpg';    
+    this.editorialImg = '/assets/imagenes/editorial.jpg';
+  }
+
+  onSelect(libro: Libro) {
+    this.router.navigate(['/editarLibro', this.libro.id])
+    //.then(s => location.reload())
+    ;
   }
 
   ngOnInit() {
