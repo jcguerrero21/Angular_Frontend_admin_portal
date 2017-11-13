@@ -3,14 +3,14 @@
     <a href="#" class="brand-logo center">ADMINISTRADOR</a>
     <a [hidden]="!loggedIn" href="#" data-activates="nav-mobile" class="button-collapse" id="btnMenu"><i class="material-icons">menu</i></a>
     <ul class="hide-on-med-and-down">
-        <li><span [hidden]="!loggedIn"><a [style.color]="'white'" class="waves-effect waves-yellow btn-flat"><i class="material-icons left">art_track</i>Listado de libros</a></span></li>
+        <li><span [hidden]="!loggedIn"><a [style.color]="'white'" class="waves-effect waves-yellow btn-flat" routerLink="/listaLibros"><i class="material-icons left">art_track</i>Listado de libros</a></span></li>
         <li><span [hidden]="!loggedIn"><a [style.color]="'white'" class="waves-effect waves-yellow btn-flat" routerLink="/addNuevoLibro"><i class="material-icons left">add</i>Añadir libro</a></span></li>
     </ul>
     <ul class="right hide-on-med-and-down">
         <li><span [hidden]="!loggedIn"><a [style.color]="'white'" class="waves-effect btn-flat espacios" (click)="cerrarSesion()"><i class="material-icons left">account_circle</i>Cerrar Sesión</a></span></li>
     </ul>
     <ul id="nav-mobile" class="side-nav">
-        <li><span [hidden]="!loggedIn"><a [style.color]="'black'" class="waves-effect waves-yellow btn-flat"><i class="material-icons left">art_track</i>Listado de libros</a></span></li>
+        <li><span [hidden]="!loggedIn"><a [style.color]="'black'" class="waves-effect waves-yellow btn-flat" routerLink="/listaLibros"><i class="material-icons left">art_track</i>Listado de libros</a></span></li>
         <li><span [hidden]="!loggedIn"><a [style.color]="'black'" class="waves-effect waves-yellow btn-flat" routerLink="/addNuevoLibro"><i class="material-icons left">add</i>Añadir libro</a></span></li>
         <li><span [hidden]="!loggedIn"><a [style.color]="'black'" class="waves-effect btn-flat" (click)="cerrarSesion()"><i class="material-icons left">account_circle</i>Cerrar Sesión</a></span></li>
     </ul>     

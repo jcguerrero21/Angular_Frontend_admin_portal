@@ -24,7 +24,6 @@ export class AddNuevoLibroComponent implements OnInit {
         this.uploadImageService.upload(JSON.parse(JSON.parse(JSON.stringify(res))._body).id);
         this.libroAniadido = true;
         this.nuevoLibro = new Libro();
-        this.nuevoLibro.activo = true;
         this.nuevoLibro.categoria = "Administracion";
         this.nuevoLibro.idioma = "Ingles";
         this.nuevoLibro.formato = "Libro De Bolsillo";

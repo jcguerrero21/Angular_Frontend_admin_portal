@@ -1,0 +1,100 @@
+<div class="container">
+  <div style="margin-top: 3%;">
+    <a routerLink="/listaLibros">
+      <i class="material-icons">arrow_back</i>Volver</a>
+    <a (click)="onSelect(libro)" style="cursor: pointer">Editar</a>
+  </div>
+  <div class="row">
+    <div class="col s12">
+      <h2 class="header center">Editar Libro</h2>
+      <div class="card horizontal">
+        <div class="card-image">
+          <img [src]="'http://localhost:8181/image/libro/'+libro.id+'.png'" class="responsive-img">
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s7">
+                <h3>{{libro.titulo}}</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s5">
+                <ul class="collection">
+                  <li class="collection-item avatar">
+                    <img [src]="autorImg" alt="" class="circle">
+                    <span class="title">Autor:</span>
+                    <p>{{libro.autor}}</p>
+                  </li>
+                  <li class="collection-item avatar">
+                    <img [src]="editorialImg" alt="" class="circle">
+                    <span class="title">Editorial:</span>
+                    <p>{{libro.editorial}}</p>
+                  </li>
+                  <li class="collection-item avatar">
+                    <i class="material-icons circle">date_range</i>
+                    <span class="title">Fecha De Publicación:</span>
+                    <p>{{libro.fechaDePublicacion}}</p>
+                  </li>
+                  <li class="collection-item avatar">
+                    <i class="material-icons circle">public</i>
+                    <span class="title">Idioma:</span>
+                    <p>{{libro.idioma}}</p>
+                  </li>
+                  <li class="collection-item avatar">
+                    <i class="material-icons circle">widgets</i>
+                    <span class="title">Categoría</span>
+                    <p>{{libro.categoria}}</p>
+                  </li>
+                  <li class="collection-item avatar">
+                    <i class="material-icons circle">widgets</i>
+                    <span class="title">Número De Páginas</span>
+                    <p>{{libro.numeroDePaginas}}</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="col s5">
+                <ul class="collection">
+                  <li class="collection-item avatar">
+                    <i class="material-icons circle">polymer</i>
+                    <span class="title">Formato:</span>
+                    <p>{{libro.formato}}</p>
+                  </li>
+                  <li class="collection-item avatar">
+                    <i class="material-icons circle">note</i>
+                    <span class="title">ISBN:</span>
+                    <p>{{libro.isbn}}</p>
+                  </li>
+                  <li class="collection-item avatar">
+                    <i class="material-icons circle">date_range</i>
+                    <span class="title">Peso Del Libro:</span>
+                    <p>{{libro.pesoDelEnvio}}</p>
+                  </li>
+                  <li class="collection-item avatar">
+                    <i class="material-icons circle">list</i>
+                    <span class="title">Lista De Precios:</span>
+                    <p>{{libro.listaDePrecios}}</p>
+                  </li>
+                  <li class="collection-item avatar">
+                    <i class="material-icons circle">attach_money</i>
+                    <span class="title">Nuestro Precio:</span>
+                    <p>{{libro.nuestroPrecio}}</p>
+                  </li>
+                  <li class="collection-item avatar">
+                    <i class="material-icons circle">euro_symbol</i>
+                    <span class="title">Número De Stock:</span>
+                    <p>{{libro.numeroDeStock}}</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="card-action">
+              <span class="title">Descripción:</span>
+              <p>{{libro.descripcion}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

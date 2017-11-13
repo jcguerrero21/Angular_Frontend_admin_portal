@@ -8,18 +8,25 @@ import { Routing } from './app.routing';
 import { LoginService } from './services/login.service';
 import { AddLibroService } from './services/add-libro.service';
 import { UploadImageService } from './services/upload-image.service';
+import { GetListaLibrosService } from './services/get-lista-libros.service';
+import { GetLibroService } from './services/get-libro.service';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddNuevoLibroComponent } from './components/add-nuevo-libro/add-nuevo-libro.component';
+import { ListaLibrosComponent } from './components/lista-libros/lista-libros.component';
+import { VistaLibroComponent } from './components/vista-libro/vista-libro.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     LoginComponent,
-    AddNuevoLibroComponent
+    AddNuevoLibroComponent,
+    ListaLibrosComponent,
+    VistaLibroComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,9 @@ import { AddNuevoLibroComponent } from './components/add-nuevo-libro/add-nuevo-l
   providers: [
     LoginService,
     AddLibroService,
-    UploadImageService
+    UploadImageService,
+    GetListaLibrosService,
+    GetLibroService
   ],
   bootstrap: [AppComponent]
 })

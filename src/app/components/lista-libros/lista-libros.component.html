@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="table-responsive" style="margin-top: 4%;">
+    <table id="tablaListaLibros" class="bordered highlight responsive-table">
+      <thead>
+        <tr>
+          <th>
+            <input type="checkbox" id="checkHead" (change)="actualizarSeleccionado($event.target.checked)">
+            <label for="checkHead"></label>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Categoría</th>
+            <th>Lista Precios</th>
+            <th>Nuestro Precio</th>
+            <th>Activo</th>
+            <th>Operación</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let libro of listaLibros">
+          <td>
+            <input hidden="hidden" name="id">
+            <input type="checkbox" id="{{libro.id}}" [checked]="allChecked" (change)="actualizarBorrarListaLibros($event.target.checked,libro)">
+            <label for="{{libro.id}}"></label>
+          </td>
+          <td>
+            <a (click)="onSelect(libro)" style="cursor:pointer;">{{libro.titulo}}</a>
+          </td>
+          <td>{{libro.autor}}</td>
+          <td>{{libro.categoria}}</td>
+          <td>{{libro.listaDePrecios}}</td>
+          <td>{{libro.nuestroPrecio}}</td>
+          <td *ngIf="(libro.activo)">Si</td>
+          <td>
+            <input hidden="hidden" name="id">
+            <button class="btn-floating btn-tiny waves-effect waves-light red" (click)="openDialog(libro)" value="borrar">
+              <i class="material-icons">delete_forever</i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button style="margin-top: 2%;" class="waves-effect waves-light btn red" id="borrarSeleccionados" (click)="borrarLibrosSeleccionados()">Borrar Seleccionados</button>
+</div>
+
+<!-- cambios en las directivas de ngIf de angular 2 a angular 4
+  
+Angular 4.0
+
+<ng-template #elseTemplate>
+  else
+</ng-template>
+<ng-container *ngIf="expression; else elseTemplate">
+  true
+</ng-container>
+or
+
+<ng-container *ngIf="expression; then thenBlock; else elseBlock"></ng-container>
+<ng-template #thenBlock>
+  then
+</ng-template>
+<ng-template #elseBlock>
+  else
+</ng-template>
+<template> is deprecated in favour of <ng-template> to avoid name collision with already existing tag.
+
+Angular 2.0
+
+<ng-container *ngIf="expression">
+    true
+</ng-container>
+<ng-container *ngIf="!expression">
+    else
+</ng-container> -->
