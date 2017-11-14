@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { GetListaLibrosService } from '../../services/get-lista-libros.service';
 
+declare var $: any;
+
 @Component({
   selector: 'app-lista-libros',
   templateUrl: './lista-libros.component.html',
@@ -17,9 +19,9 @@ export class ListaLibrosComponent implements OnInit {
   private allChecked: boolean;
   private borrarListaLibros: Libro[] = new Array();
 
-  constructor(private getListaLibrosService:GetListaLibrosService, private router:Router) { }
+  constructor(private getListaLibrosService: GetListaLibrosService, private router: Router) { }
 
-  onSelect(libro:Libro){
+  onSelect(libro: Libro) {
     this.libroSeleccionado = libro;
     this.router.navigate(['/vistaLibro', this.libroSeleccionado.id]);
   }
@@ -29,13 +31,12 @@ export class ListaLibrosComponent implements OnInit {
     this.getListaLibrosService.getListaLibros().subscribe(
       res => {
         console.log(res.json());
-        this.listaLibros=res.json();
+        this.listaLibros = res.json();
       },
       error => {
         console.log(error);
       }
     );
-
   }
 
 }

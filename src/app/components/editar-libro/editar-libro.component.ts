@@ -30,7 +30,7 @@ export class EditarLibroComponent implements OnInit {
     this.editarLibroService.enviarLibro(this.libro).subscribe(
       data => {
         this.uploadImageService.modify(JSON.parse(JSON.parse(JSON.stringify(data))._body).id);
-        this.libroActualizado=true;
+        this.libroActualizado = true;
       },
       error => {
         console.log(error);
@@ -46,16 +46,70 @@ export class EditarLibroComponent implements OnInit {
 
     this.route.params.forEach((params: Params) => {
       this.libroId = Number.parseInt(params['id']);
-    }); 
+    });
 
     this.getLibroService.getLibro(this.libroId).subscribe(
       res => {
-          this.libro = res.json();
+        this.libro = res.json();
       },
       error => {
         console.log(error);
       }
     )
   }
+
+
+  // Aqui tenemos un ejemplo por si quisieramos validar el formulario con jquery
+  // functionHover() {
+  //   $("#formValidate").validate({
+  //     rules: {
+  //       uname: {
+  //         required: true,
+  //         minlength: 5
+  //       },
+  //       cemail: {
+  //         required: true,
+  //         email: true
+  //       },
+  //       password: {
+  //         required: true,
+  //         minlength: 5
+  //       },
+  //       cpassword: {
+  //         required: true,
+  //         minlength: 5,
+  //         equalTo: "#password"
+  //       },
+  //       curl: {
+  //         required: true,
+  //         url: true
+  //       },
+  //       crole: "required",
+  //       ccomment: {
+  //         required: true,
+  //         minlength: 15
+  //       },
+  //       cgender: "required",
+  //       cagree: "required",
+  //     },
+  //     //For custom messages
+  //     messages: {
+  //       uname: {
+  //         required: "Enter a username",
+  //         minlength: "Enter at least 5 characters"
+  //       },
+  //       curl: "Enter your website",
+  //     },
+  //     errorElement: 'div',
+  //     errorPlacement: function (error, element) {
+  //       var placement = $(element).data('error');
+  //       if (placement) {
+  //         $(placement).append(error)
+  //       } else {
+  //         error.insertAfter(element);
+  //       }
+  //     }
+  //   });
+  // }
 
 }

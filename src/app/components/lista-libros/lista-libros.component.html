@@ -32,7 +32,7 @@
           <td *ngIf="(libro.activo)">Si</td>
           <td>
             <input hidden="hidden" name="id">
-            <button class="btn-floating btn-tiny waves-effect waves-light red" (click)="openDialog(libro)" value="borrar">
+            <button id="borrarUno" class="btn-floating btn-tiny waves-effect waves-light red" (click)="openModal(libro)" value="borrar">
               <i class="material-icons">delete_forever</i>
             </button>
           </td>

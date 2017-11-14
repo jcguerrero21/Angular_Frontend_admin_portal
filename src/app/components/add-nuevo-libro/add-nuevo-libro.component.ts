@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Libro } from '../../models/libro';
 import { AddLibroService } from '../../services/add-libro.service';
-import {UploadImageService} from '../../services/upload-image.service';
+import { UploadImageService } from '../../services/upload-image.service';
 declare var $: any;
 
 @Component({
@@ -15,8 +15,9 @@ export class AddNuevoLibroComponent implements OnInit {
   private libroAniadido: boolean;
   model: string;
   modelChange = new EventEmitter();
+  private birthdateOption: Date;
 
-  constructor(private addLibroService: AddLibroService, private uploadImageService:UploadImageService) {
+  constructor(private addLibroService: AddLibroService, private uploadImageService: UploadImageService) {
   }
 
   onSubmit() {
