@@ -11,6 +11,7 @@ import { UploadImageService } from './services/upload-image.service';
 import { GetListaLibrosService } from './services/get-lista-libros.service';
 import { GetLibroService } from './services/get-libro.service';
 import { EditarLibroService } from './services/editar-libro.service';
+import { BorrarLibroService } from './services/borrar-libro.service';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -44,7 +45,8 @@ import { EditarLibroComponent } from './components/editar-libro/editar-libro.com
     UploadImageService,
     GetListaLibrosService,
     GetLibroService,
-    EditarLibroService
+    EditarLibroService,
+    BorrarLibroService
   ],
   bootstrap: [AppComponent]
 })
