@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Libro } from '../../models/libro';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { GetListaLibrosService } from '../../services/get-lista-libros.service';
+import { BorrarLibroService } from '../../services/borrar-libro.service';
+import { MaterializeAction } from 'angular2-materialize';
 
 declare var $: any;
 
@@ -18,12 +20,35 @@ export class ListaLibrosComponent implements OnInit {
   private listaLibros: Libro[];
   private allChecked: boolean;
   private borrarListaLibros: Libro[] = new Array();
+  modalActions = new EventEmitter<string | MaterializeAction>();
 
-  constructor(private getListaLibrosService: GetListaLibrosService, private router: Router) { }
+  constructor(private getListaLibrosService: GetListaLibrosService, private router: Router,
+     private borrarLibroService: BorrarLibroService) { }
 
   onSelect(libro: Libro) {
     this.libroSeleccionado = libro;
     this.router.navigate(['/vistaLibro', this.libroSeleccionado.id]);
+  }
+
+  openModal(libro: Libro) {
+    this.modalActions.emit({ action: "modal", params: ['open'] });
+  }
+
+  closeModal() {
+    this.modalActions.emit({ action: "modal", params: ['close'] });
+  }
+
+  borrarSelecionado(libro: Libro) {
+    this.borrarLibroService.enviarLibro(libro.id).subscribe(
+      res => {
+        console.log(res);
+        location.reload();
+      },
+      err => console.log(err),
+      () => {
+        this.listaLibros = this.listaLibros.filter(h => h !== libro)
+      }
+    )
   }
 
   ngOnInit() {
