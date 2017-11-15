@@ -42,7 +42,7 @@ export class ListaLibrosComponent implements OnInit {
     this.borrarLibroService.enviarLibro(libro.id).subscribe(
       res => {
         console.log(res);
-        location.reload();
+        this.closeModal();
       },
       err => console.log(err),
       () => {
