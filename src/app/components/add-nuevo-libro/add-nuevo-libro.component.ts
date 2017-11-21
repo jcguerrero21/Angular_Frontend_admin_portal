@@ -1,15 +1,22 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, HostBinding } from '@angular/core';
 import { Libro } from '../../models/libro';
 import { AddLibroService } from '../../services/add-libro.service';
 import { UploadImageService } from '../../services/upload-image.service';
+import { slide } from '../../animations/animations';
+
 declare var $: any;
 
 @Component({
   selector: 'app-add-nuevo-libro',
   templateUrl: './add-nuevo-libro.component.html',
-  styleUrls: ['./add-nuevo-libro.component.css']
+  styleUrls: ['./add-nuevo-libro.component.css'],
+  animations: [slide]
 })
 export class AddNuevoLibroComponent implements OnInit {
+  
+  @HostBinding('@routeAnimation') routeAnimation = true;
+  @HostBinding('style.display') display = 'block';
+  @HostBinding('style.position') position = 'relative';
 
   private nuevoLibro: Libro = new Libro();
   private libroAniadido: boolean;

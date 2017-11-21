@@ -1,19 +1,25 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, HostBinding } from '@angular/core';
 import { Libro } from '../../models/libro';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { GetListaLibrosService } from '../../services/get-lista-libros.service';
 import { BorrarLibroService } from '../../services/borrar-libro.service';
 import { MaterializeAction } from 'angular2-materialize';
+import { slide } from '../../animations/animations';
 
 declare var $: any;
 
 @Component({
   selector: 'app-lista-libros',
   templateUrl: './lista-libros.component.html',
-  styleUrls: ['./lista-libros.component.css']
+  styleUrls: ['./lista-libros.component.css'],
+  animations: [slide]
 })
 export class ListaLibrosComponent implements OnInit {
+
+  @HostBinding('@routeAnimation') routeAnimation = true;
+  @HostBinding('style.display') display = 'block';
+  @HostBinding('style.position') position = 'relative';
 
   private libroSeleccionado: Libro;
   private checked: boolean;

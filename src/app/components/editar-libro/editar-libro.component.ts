@@ -1,18 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { UploadImageService } from '../../services/upload-image.service';
 import { Libro } from '../../models/libro';
 import { Params, ActivatedRoute, Router } from '@angular/router';
 import { GetLibroService } from '../../services/get-libro.service';
 import { EditarLibroService } from '../../services/editar-libro.service';
+import { slide } from '../../animations/animations';
 
 declare var $: any;
 
 @Component({
   selector: 'app-editar-libro',
   templateUrl: './editar-libro.component.html',
-  styleUrls: ['./editar-libro.component.css']
+  styleUrls: ['./editar-libro.component.css'],
+  animations: [slide]
 })
 export class EditarLibroComponent implements OnInit {
+
+  @HostBinding('@routeAnimation') routeAnimation = true;
+  @HostBinding('style.display') display = 'block';
+  @HostBinding('style.position') position = 'relative';
 
   private libroId: number;
   private libro: Libro = new Libro();

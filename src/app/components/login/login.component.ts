@@ -1,14 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { LoginService } from '../../services/login.service';
+import { slide } from '../../animations/animations';
 
 declare var $:any;
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [slide]
 })
 export class LoginComponent implements OnInit {
+
+  @HostBinding('@routeAnimation') routeAnimation = true;
+  @HostBinding('style.display') display = 'block';
+  @HostBinding('style.position') position = 'relative';
+
   private imagenCard: string;
   private credenciales = { 'username': '', 'password': '' };
   private loggedIn = false;
