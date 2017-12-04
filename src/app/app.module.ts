@@ -30,7 +30,7 @@ import { EditarLibroComponent } from './components/editar-libro/editar-libro.com
     AddNuevoLibroComponent,
     ListaLibrosComponent,
     VistaLibroComponent,
-    EditarLibroComponent,
+    EditarLibroComponent
   ],
   imports: [
     BrowserModule,

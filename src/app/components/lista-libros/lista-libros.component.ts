@@ -111,9 +111,7 @@ export class ListaLibrosComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.listarLibros();
-
   }
 
 }
