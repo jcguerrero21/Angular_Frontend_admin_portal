@@ -9,9 +9,9 @@
             <th>Título</th>
             <th>Autor</th>
             <th>Categoría</th>
-            <th>Lista Precios</th>
+            <th>Lista Precios Otros Sitios</th>
             <th>Nuestro Precio</th>
-            <th>Activo</th>
+            <th>Número De Stock</th>
             <th>Operación</th>
         </tr>
       </thead>
@@ -29,24 +29,13 @@
           <td>{{libro.categoria}}</td>
           <td>{{libro.listaDePrecios}}</td>
           <td>{{libro.nuestroPrecio}}</td>
-          <td *ngIf="(libro.activo)">Si</td>
+          <td>{{libro.numeroDeStock}}</td>
           <td>
             <input hidden="hidden" name="id">
-            <button id="borrarUno" class="btn-floating btn-tiny waves-effect waves-light red" (click)="openModal()" value="borrar">
+            <button id="borrarUno" class="btn-floating btn-tiny waves-effect waves-light red" (click)="borrarSelecionado(libro)" value="borrar">
               <i class="material-icons">delete_forever</i>
             </button>
           </td>
-          <div class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
-            <div class="modal-content">
-              <h4>¿ Estás seguro ?</h4>
-              <span>{{libro.id}}</span>
-            </div>
-            <div class="modal-footer">
-              <button type="button" (click)="borrarSelecionado(libro)" class="waves-effect waves-light btn red">Si</button>
-              <button type="button" (click)="closeModal()" class="waves-effect waves-light 
-                           btn grey">No</button>
-            </div>
-          </div>
         </tr>
       </tbody>
     </table>

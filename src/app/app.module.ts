@@ -12,6 +12,7 @@ import { GetListaLibrosService } from './services/get-lista-libros.service';
 import { GetLibroService } from './services/get-libro.service';
 import { EditarLibroService } from './services/editar-libro.service';
 import { BorrarLibroService } from './services/borrar-libro.service';
+import { FacturaService } from './services/factura.service';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -20,6 +21,7 @@ import { AddNuevoLibroComponent } from './components/add-nuevo-libro/add-nuevo-l
 import { ListaLibrosComponent } from './components/lista-libros/lista-libros.component';
 import { VistaLibroComponent } from './components/vista-libro/vista-libro.component';
 import { EditarLibroComponent } from './components/editar-libro/editar-libro.component';
+import { ListaFacturasComponent } from './components/lista-facturas/lista-facturas.component';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { EditarLibroComponent } from './components/editar-libro/editar-libro.com
     AddNuevoLibroComponent,
     ListaLibrosComponent,
     VistaLibroComponent,
-    EditarLibroComponent
+    EditarLibroComponent,
+    ListaFacturasComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { EditarLibroComponent } from './components/editar-libro/editar-libro.com
     GetListaLibrosService,
     GetLibroService,
     EditarLibroService,
-    BorrarLibroService
+    BorrarLibroService,
+    FacturaService
   ],
   bootstrap: [AppComponent]
 })

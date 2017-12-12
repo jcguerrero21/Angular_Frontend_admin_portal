@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="table-responsive" style="margin-top: 4%;">
+    <table id="tablaListaFacturas" class="bordered highlight responsive-table">
+      <thead>
+        <tr>
+            <th>Id Factura</th>
+            <th>Dinero Ganado</th>
+            <th>Fecha Compra</th>
+            <th>Método de envio</th>
+            <th>Operación</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let factura of listaFacturas">
+          <td>{{factura.id}}</td>
+          <td>{{factura.facturaTotal}} €</td>
+          <td>{{factura.fechaFactura}}</td>
+          <td>{{factura.metodoEnvio}}</td>
+          <td>
+            <input hidden="hidden" name="id">
+            <button id="borrarUno" class="btn-floating btn-tiny waves-effect waves-light teal" (click)="enviarSelecionado(factura)" value="enviar">
+              <i class="material-icons">rv_hookup</i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

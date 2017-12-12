@@ -5,6 +5,7 @@ import { AddNuevoLibroComponent } from './components/add-nuevo-libro/add-nuevo-l
 import { ListaLibrosComponent } from './components/lista-libros/lista-libros.component';
 import { VistaLibroComponent } from './components/vista-libro/vista-libro.component';
 import { EditarLibroComponent } from './components/editar-libro/editar-libro.component';
+import { ListaFacturasComponent } from './components/lista-facturas/lista-facturas.component';
 
 const appRoutes: Routes = [
     {
@@ -31,6 +32,10 @@ const appRoutes: Routes = [
     {
         path: 'editarLibro/:id',
         component: EditarLibroComponent
+    },
+    {
+        path: 'listaFacturas',
+        component: ListaFacturasComponent
     }       
 ];
 

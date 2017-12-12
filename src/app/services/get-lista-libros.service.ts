@@ -14,7 +14,7 @@ export class GetListaLibrosService {
       'x-auth-token' : localStorage.getItem('xAuthToken')
     });
 
-    return this.http.post(url, {headers: headers});
+    return this.http.get(url, {headers: headers});
   }
 
 }
