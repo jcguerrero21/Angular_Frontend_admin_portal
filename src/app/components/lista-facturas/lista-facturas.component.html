@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="table-responsive" style="margin-top: 4%;">
+  <div *ngIf="numeroFacturas!=0" class="table-responsive" style="margin-top: 4%;">
     <table id="tablaListaFacturas" class="bordered highlight responsive-table">
       <thead>
         <tr>
@@ -25,5 +25,8 @@
         </tr>
       </tbody>
     </table>
+  </div>
+  <div *ngIf="numeroFacturas===0">
+    <h3>No Hay Ningún Envio Pendiente</h3>
   </div>
 </div>

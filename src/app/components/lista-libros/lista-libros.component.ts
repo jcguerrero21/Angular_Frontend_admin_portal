@@ -24,6 +24,7 @@ export class ListaLibrosComponent implements OnInit {
   private libroSeleccionado: Libro;
   private checked: boolean;
   private listaLibros: Libro[];
+  private numeroLibros: number;
   private allChecked: boolean;
   private borrarListaLibros: Libro[] = new Array();
   modalActions = new EventEmitter<string | MaterializeAction>();
@@ -102,6 +103,7 @@ export class ListaLibrosComponent implements OnInit {
       res => {
         console.log(res.json());
         this.listaLibros = res.json();
+        this.numeroLibros = this.listaLibros.length;
       },
       error => {
         console.log(error);

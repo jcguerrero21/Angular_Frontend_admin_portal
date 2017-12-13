@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="table-responsive" style="margin-top: 4%;">
+  <div *ngIf="numeroLibros!=0" class="table-responsive" style="margin-top: 4%;">
     <table id="tablaListaLibros" class="bordered highlight responsive-table">
       <thead>
         <tr>
@@ -9,7 +9,7 @@
             <th>Título</th>
             <th>Autor</th>
             <th>Categoría</th>
-            <th>Lista Precios Otros Sitios</th>
+            <th>Lista Precios Otros</th>
             <th>Nuestro Precio</th>
             <th>Número De Stock</th>
             <th>Operación</th>
@@ -27,8 +27,8 @@
           </td>
           <td>{{libro.autor}}</td>
           <td>{{libro.categoria}}</td>
-          <td>{{libro.listaDePrecios}}</td>
-          <td>{{libro.nuestroPrecio}}</td>
+          <td>{{libro.listaDePrecios}} €</td>
+          <td>{{libro.nuestroPrecio}} €</td>
           <td>{{libro.numeroDeStock}}</td>
           <td>
             <input hidden="hidden" name="id">
@@ -40,7 +40,11 @@
       </tbody>
     </table>
   </div>
-  <button style="margin-top: 2%;" class="waves-effect waves-light btn red" id="borrarSeleccionados" (click)="borrarLibrosSeleccionados()">Borrar Seleccionados</button>
+  <button *ngIf="listaLibros!=0" style="margin-top: 2%;" class="waves-effect waves-light btn red" id="borrarSeleccionados" (click)="borrarLibrosSeleccionados()">Borrar Seleccionados</button>
+  <div *ngIf="numeroLibros===0">
+    <h3>No Hay Ningún Libro Insertado</h3><br>
+    <h5>Por favor ve a la opción añadir Libros</h5>
+  </div>
 <!-- </div>
 <div id="modal2" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions2">
   <div class="modal-content">

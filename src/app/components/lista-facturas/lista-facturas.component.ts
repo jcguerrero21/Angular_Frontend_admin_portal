@@ -17,6 +17,7 @@ export class ListaFacturasComponent implements OnInit {
   @HostBinding('style.position') position = 'relative';
 
   private listaFacturas: Factura[];
+  private numeroFacturas: number;
 
   constructor(private getFacturaService: FacturaService, router: Router) { }
 
@@ -25,6 +26,7 @@ export class ListaFacturasComponent implements OnInit {
       res => {
         console.log(res.json());
         this.listaFacturas = res.json();
+        this.numeroFacturas = this.listaFacturas.length;
       },
       error => {
         console.log(error);
